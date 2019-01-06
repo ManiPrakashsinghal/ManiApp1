@@ -1,0 +1,12 @@
+page-booking-summary {
+    .bookSummary h4{font-size: 1.5rem}
+    .bookSummary ul{    margin: 0;
+       padding: 0;
+       list-style: none; background: white}
+    .bookSummary ul li{margin:0; padding: 1rem; overflow: hidden}
+    .bookSummary ul li h4{ display: inline-block; float: left; margin: 0}
+    .bookSummary ul li p{ display: inline-block; float: right; float: right;margin: 0}
+    .label{color:#ff9800; font-weight:700; text-transform: uppercase;}
+    
+   }
+   

@@ -1,0 +1,32 @@
+<!--
+  Generated template for the OtpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!-- <ion-navbar>
+    <ion-title>otp</ion-title>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content class="background">
+  <ion-card>
+      <h2>Sit back & Relax! while we varify your mobile number</h2>
+      <P>(Enter the OTP below in case if we fail to detect the SMS automatically)</P>
+    
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="otpValue" placeholder="Enter OTP"></ion-input>
+        </ion-item>
+          <button ion-button block outline color="light" (click)="submit(otpValue)">SUBMIT</button>
+          <button ion-button clear full id="resendBtn" color="light" (click)="reSendOtp()"  [disabled]="!isenabled">Resend OTP</button>    
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

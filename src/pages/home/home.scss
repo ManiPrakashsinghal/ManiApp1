@@ -1,0 +1,48 @@
+page-home {
+   agm-map {
+    height: 70vh;
+  }
+  #formStep-1 .item-block{ width:33.3%; text-align:center; display: inline-block}
+  #travelForm .grid, #travelForm .col { padding: 0}
+  #travelStep_1{ text-align: center }
+  ion-list.myRadio { margin: 0; font-size:0; background: #fff;}
+  .button-md-danger,
+  .button-md-light{ margin: 0;}
+  
+  ion-list.myRadio  .item-block{ padding:0; vertical-align: top; vertical-align:0;  display: inline-block;   width: 24%; text-align: center}
+  #travelStep_1 ion-list.myRadio .item-block{ width: 32%;}
+  #travelStep_3 ion-list.myRadio .item-block{ width: 49%;}
+  ion-list.myRadio  .item-block .item-inner{ padding: 5px 0;    display: block!important;}
+  ion-list.myRadio  .item-block .input-wrapper{    display: block!important;
+    flex: auto!important; padding-bottom:15px; 
+    overflow: visible!important;
+    white-space: normal!important;}
+  ion-list.myRadio  .item-block .input-wrapper ion-label{flex: auto!important;
+      overflow: visible!important;
+      white-space: normal!important;    margin: 0;
+      text-align: center;}
+  ion-list.myRadio  .item-block ion-radio{display: inline-block !important;
+    margin: 0; float: none!important;}
+
+  .radioWithImg .item-inner{padding-bottom: 15px!important;
+      background-size: 35px auto;
+      background-repeat: no-repeat;
+      background-position: center bottom;}
+  .roundTrip .item-inner{background-image: url(../assets/imgs/roundTrip.png);}
+  .oneWayTrip .item-inner{background-image: url(../assets/imgs/oneWayTrip.png);}
+  .localTrip .item-inner{background-image: url(../assets/imgs/localTrip.png);}
+
+  .smlCar .item-inner{background-image: url(../assets/imgs/icon-car-1.png);}
+  .midCar .item-inner{background-image: url(../assets/imgs/icon-car-2.png);}
+  .lrgCar .item-inner{background-image: url(../assets/imgs/icon-car-3.png);}
+  .lxyCar .item-inner{background-image: url(../assets/imgs/icon-car-4.png);}
+
+  #travelStep_2 .radio-icon,
+  #travelStep_1 .radio-icon{ visibility: hidden;}
+  #travelStep_2 .radioWithImg .item-inner{padding-bottom: 0px!important; background-size: 50px auto;}
+
+  .bookDriverInput ion-label[fixed] {    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 40px;    -ms-flex: 0 0 40px;    flex: 0 0 40px;    width: 40px;
+    min-width: 40px;    max-width: 200px; }
+    
+}

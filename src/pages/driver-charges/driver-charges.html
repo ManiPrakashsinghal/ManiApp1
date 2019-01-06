@@ -1,0 +1,67 @@
+<!--
+  Generated template for the DriverChargesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Driver Charges</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+<h3>Local</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6><h4>Hours</h4></ion-col>
+        <ion-col col-6><h4>Charges</h4></ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-6><p>0-4</p></ion-col>
+          <ion-col col-6><p>71/ Per Hour</p></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6><p>4-8</p></ion-col>
+            <ion-col col-6><p>47/ Per Hour</p></ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6><p>8 onwords</p></ion-col>
+              <ion-col col-6><p>31/ Per Hour</p></ion-col>
+            </ion-row>
+    </ion-grid>
+<ion-list *ngIf="charge_1" id="travelStep_1">
+<p>Tax As Applicable 1</p>
+<h4>Additional Charges</h4>
+<p>Following are as Per Market Standards:</p>
+<ul>
+  <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
+  <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
+</ul>
+</ion-list>
+<ion-list *ngIf="charge_2" id="travelStep_2">
+    <p>Tax As Applicable 2</p>
+    <h4>Additional Charges</h4>
+    <p>Following are as Per Market Standards:</p>
+    <ul>
+      <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
+      <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
+    </ul>
+    </ion-list>
+    <ion-list *ngIf="charge_2" id="travelStep_2">
+        <p>Tax As Applicable 1</p>
+        <h4>Additional Charges</h4>
+        <p>Following are as Per Market Standards:</p>
+        <ul>
+          <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
+          <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
+        </ul>
+        </ion-list>
+</ion-content>

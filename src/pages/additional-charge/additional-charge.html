@@ -1,0 +1,54 @@
+<!--
+  Generated template for the AdditionalChargePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Additional Charge</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- LOCAL BOOKINGS START-->
+  <ion-card *ngIf="local">
+    <ion-card-content>
+    <h2>FOLLOWING ARE AS PER MARKET STANDARDS  </h2>
+      <ul class="my-modal-list">
+        <li> DRIVER CONVEYANCE CHARGES OF RS. 50 IS APPLICABLE FOR LOCAL BOOKINGS.</li>
+        <li> NIGHT TRAVELLING ALLOWANCE OF RS. 100 IS APPLICABLE FOR LOCAL BOOKING STARTING/ ENDING BETWEEN 12AM. TO 4AM.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+  <!-- LOCAL BOOKINGS END -->
+    <!-- OUT STANDING START-->
+  <ion-card *ngIf="outStanding">
+    <ion-card-content>
+    <h2>FOLLOWING ARE AS PER MARKET STANDARDS</h2>
+      <ul class="my-modal-list">
+        <li> DRIVER CONVEYANCE CHARGES OF RS. 50 IS APPLICABLE FOR OUTSTATION TRIP BOOKING.</li>
+        <li> FOOD AND ACCOMMODATION WILL BE PROVIDED BY CUSTOMER.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+  <!-- OUT STANDING END -->
+    <!-- OUT STANDING ONEWAY START-->
+  <ion-card *ngIf="oneWay">
+    <ion-card-content>
+    <h2>FOLLOWING ARE AS PER MARKET STANDARDS</h2>
+      <ul class="my-modal-list">
+        <li> IN CASE OF OUTSTATION ONE WAY TRIP CHARGES WOULD GET DOUBLED ABOVE MENTIONED TABLE BECAUSE DRIVER WILL TAKE SAME OR MAY BE MORE TIME TO REACH SOURCE LOCATION.</li>
+        <li> DRIVER CONVEYANCE CHARGES OF RS. 100 IS APPLICABLE FOR OUTSTATION ONE WAY BOOKING.</li>
+        <li> NIGHT TRAVELLING ALLOWANCE OF RS. 100 IS APPLICABLE FOR OUTSTATION ONE WAY BOOKING STARTING/ ENDING BETWEEN 10PM TO 4AM.</li>
+        <li> FOOD AND ACCOMMODATION WILL BE PROVIDED BY CUSTOMER.</li>
+        <li> RETURN BUS FARE WILL BE BORNE BY THE USER IN CASE OF ONE WAY TRIP. </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+  <!-- OUT STANDING ONEWAY END -->
+  
+</ion-content>
+<ion-footer>
+  <button color="danger" ion-button block icon-start (click)="closeThisModel()">OK</button>
+</ion-footer>

@@ -1,0 +1,62 @@
+
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Trip Details</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+<ion-card class="card card-md">
+            <img src="./assets/imgs/placeHolder.png">
+			
+        <div class="card-title"></div>
+        <div class="card-subtitle"></div>
+        <ion-card-content class="card-content card-content-md">
+            <div>
+               <strong class="label">FROM : </strong>{{bookingObj.pick_location}}
+              </div>
+              <div>
+                <strong class="label">TO : </strong>{{bookingObj.drop_location}}
+               </div>
+              <h2 class="status">{{bookingObj.status}}</h2>
+                    <h3>Bill Details :</h3>
+                        <!-- <p>Invoice Number :<span class="float-right">Rs. 0</span></p> -->
+                        <div *ngIf="bookingObj.status == 'complete'">
+                             <p>Total Journey Hours :<span class="float-right">{{totalHM}}</span></p> 
+                                <p>Ride Hours Charges :<span class="float-right">Rs.{{bookingObj.actualPrice}}</span></p>
+                                    <p>Discount :<span class="float-right">Rs.{{bookingObj.discount}}</span></p>
+                                        <p>Night Charges :<span class="float-right">Rs. {{bookingObj.night_charge}}</span></p>
+                                            <p>Driver Conveyance :<span class="float-right">Rs.{{bookingObj.convPrice}}</span></p>
+                                                <p>Total Bill :<span class="float-right">Rs.{{bookingObj.total_fair}}</span></p>
+                                                <p *ngIf="bookingObj.extra_charges !=  0" >Festival Extra Charges :<span class="float-right">Rs.{{bookingObj.extra_charges}}</span></p>
+                                            </div>
+                                            <div class="estimate" *ngIf="bookingObj.status != 'complete'">
+                                                <p>Estimate Price :<span class="float-right">Rs.{{bookingObj.total_fair}}</span></p>
+                                            </div>  
+                                            <div *ngIf="bookingObj.driver_id != '0'">     
+                                                <h3 class="label">Driver Details :</h3>
+                                                <p>Driver Name :<span class="float-right">{{driverObj.first_name}} {{driverObj.last_name}}</span></p>
+                                               
+                                                <p>Driver Address :<span class="float-right">{{driverObj.address}}</span></p>
+                                   
+                                     <div *ngIf="bookingObj.status == 'pending'">
+                                        <p>Driver Mobile No :<span class="float-right">{{driverObj.mobile_no}}</span></p> 
+                                        <button ion-button round (click)="getDriverLocation()" > <ion-icon name="pin" >  </ion-icon> Track Driver</button>
+                                        <ion-fab right bottom>
+                                            <button ion-fab color="light" (click)="callInNumber(driverObj.mobile_no)">
+                                            <ion-icon name="call"></ion-icon>
+                                            </button>
+                                            <ion-label>Call Driver</ion-label>   											
+                                        </ion-fab>
+                                    </div>
+                                              <!--  <button ion-button round (click)="callInNumber(driverObj.mobile_no)">
+                                                   <ion-icon ios="ios-call" md="md-call" ></ion-icon>
+                                                </button>
+												-->
+                                            </div>    
+          </ion-card-content>
+      </ion-card>
+</ion-content>

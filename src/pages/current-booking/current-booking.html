@@ -1,0 +1,39 @@
+<!--
+  Generated template for the CurrentBookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Current Bookings</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let data of currentData" >
+    <ion-card-header> Trip will start from </ion-card-header>
+    <ion-card-content class="bookingSummary" (click)="viewBooking(data)">
+      <p icon-start>
+        <ion-icon name="calendar"></ion-icon>
+        {{data.start_time}}</p>
+      <p icon-start>
+        <ion-icon name="pin"></ion-icon>
+        <strong class="label">FROM </strong> :{{data.pick_location}}</p>
+      <p icon-start>
+        <ion-icon name="pin"></ion-icon>
+        <strong class="label">TO </strong> :{{data.drop_location}}</p>
+      <p icon-start>
+        <ion-icon name="timer"></ion-icon>
+        Hourly</p>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-row  *ngIf='data.initiate_time == "0000-00-00 00:00:00"' >
+        <button ion-button color="danger" outline (click)="cancelBooking(data.id)">Cancel Booking</button>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

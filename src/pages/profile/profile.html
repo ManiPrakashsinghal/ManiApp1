@@ -1,0 +1,96 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Profile</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content >
+    <ion-card>
+
+        <!-- <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+         
+         <img [src]="profileImage" onerror="this.src='assets/imgs/profileImage.jpg';"
+         [hidden]="lastImage !== null"> -->
+
+       <img src="assets/imgs/profileImage.jpg">
+        <div class="card-title">Mr. {{firstName}}</div>
+        <!-- <div class="card-subtitle">28 Listings</div> -->
+        <!-- <div class="card-subtitle" (click)="clickImage()">upload pic</div>  -->
+
+        <!-- <ion-toolbar color="primary">
+            <ion-buttons>
+              <button ion-button icon-left (click)="presentActionSheet()">
+                <ion-icon name="camera"></ion-icon>Select Image
+              </button>
+              <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+                <ion-icon name="cloud-upload"></ion-icon>Upload
+              </button>
+            </ion-buttons>
+          </ion-toolbar> -->
+
+      </ion-card>
+
+      <ion-list>
+          <ion-item>
+            <h3 class="text-center">First Name</h3>
+            <ion-input placeholder="Name" [(ngModel)]="firstName"  ></ion-input>
+          </ion-item>
+          <!-- <ion-item>
+              <h2>Second Name</h2>
+              <p>{{lastName}</p>
+            </ion-item> -->
+            <ion-item>
+                <h2>Email</h2>
+                <ion-input placeholder="Email Id" [(ngModel)]="email_id"  ></ion-input>
+              </ion-item>
+                  <ion-item>
+                      <h2> Mobile Number</h2>
+                      <ion-input placeholder="Mobile No." [(ngModel)]="mobile_no"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <h2> Address</h2>
+                      <ion-input placeholder="Address" [(ngModel)]="address"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <h2>Zip Code</h2>
+                      <ion-input placeholder="Zip Code" [(ngModel)]="zip_code"  ></ion-input>
+                    </ion-item>
+                    
+                    <ion-item>
+                      <button color="light" ion-button block large (click)="updateProfile()">Save</button>
+                      </ion-item>
+        </ion-list>
+    
+        
+
+        <ion-list>
+              
+			  <h4 class="text-center">Change Password</h4>
+              <ion-item>
+                  <h2>New Pasword</h2>
+                  <ion-input placeholder="New password" [(ngModel)]="password"  ></ion-input>
+                </ion-item>
+                <ion-item>
+                    <h2>Confirm New Pasword</h2>
+                    <ion-input placeholder="Confirm Password" [(ngModel)]="confirm_password"  ></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <button color="light" ion-button large block [disabled]="password != confirm_password" (click)="updatePassword()">Change Password</button>
+					</ion-item>
+                     
+        </ion-list>
+
+
+</ion-content>
+
+

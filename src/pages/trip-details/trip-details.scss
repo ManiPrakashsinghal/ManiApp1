@@ -1,0 +1,19 @@
+page-trip-details {
+    .float-right{ float: right}
+    .label{color:#ff9800; font-weight:700; text-transform: uppercase;}
+    .estimate{background: #f3f3f3;    padding: .5rem;    margin: .5rem 0 2rem;    border: 1px solid #b1b1b1;}
+    .status{ text-transform: uppercase; text-align:center; padding:.5rem}
+    ion-fab{
+        ion-label {
+            position: absolute;
+        top: 0px;
+        right: 40px;
+        color: black!important;
+        background-color: rgb(255, 198, 26);
+        line-height: 24px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        }
+    }
+    }
+    

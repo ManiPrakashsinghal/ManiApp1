@@ -1,0 +1,83 @@
+<!--
+  Generated template for the BookingSummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Booking Summary</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="bookSummary">
+    <p><strong class="label">FROM</strong> : {{pickLocation}}</p>
+    <p><strong class="label">TO</strong> : {{dropLocation}}</p>
+    <ul>
+      <li>
+        <h4>Start Date/Time</h4>
+        <p>{{startTime}}</p>
+      </li>
+      <li>
+        <h4>End Date/Time</h4>
+        <p>{{endTime}}</p>
+      </li>
+      <li>
+        <h4>Total Time</h4>
+        <p>{{hours}} hours {{minute}} minutes</p>
+      </li>
+      <li>
+        <h4>Car - Gear Type</h4>
+        <p>{{carType}} -{{gearType}}</p>
+      </li>
+      <li>
+        <h4>Booking Type</h4>
+        <p>{{tripType}}</p>
+      </li>
+      <li>
+        <h4>Estimated Charge</h4>
+        <p>Rs. {{charge}}</p>
+      </li>
+      <li>
+        <h4>Night Charge</h4>
+        <p>Rs. {{nightCharge}}</p>
+      </li>
+      <li>
+        <h4>Conveyance Charges</h4>
+        <p>Rs. {{convFees}}</p>
+      </li>
+      <li>
+        <h4>Tax</h4>
+        <p>Rs. {{tax}}</p>
+      </li>
+      <li *ngIf="discount !=  0">
+        <h4>Discount</h4>
+        <p>Rs. {{discount}}</p>
+      </li>
+      <li *ngIf="extraCharges !=  0">
+        <h4>Festival Extra Charges</h4>
+        <p>Rs. {{extraCharges}}</p>
+      </li>
+      <li >
+        <h4>Final Est. Charges</h4>
+        <p>Rs. {{finalFee}}</p>
+      </li>
+    </ul>
+    <p>Note: Estimated Charges may differ depend upon actual total journey hours.</p>
+    <button large ion-button block block medium color="dark" (click)="additionalCharge()">
+    ADDITIONAL CHARGES
+    </button>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button (click)="bookNow()" color="light" ion-button block icon-end> BOOK
+        <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
