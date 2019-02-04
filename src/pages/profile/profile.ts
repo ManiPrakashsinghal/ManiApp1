@@ -31,6 +31,7 @@ export class ProfilePage {
  public mobile_no:any;
  public address:any;
  public zip_code:any;
+ public gender:any;
 
  old_password:any;
  password:any;
@@ -42,11 +43,8 @@ export class ProfilePage {
     public loadingCtrl: LoadingController
     , private toastCtrl: ToastController,public platform: Platform
     ,private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController) { 
-
       var id = shareService.getClientId();
       this.profileImage = "http://driveronapp.com/Admin/api/UserApp/uploads/"+id+".jpg?v="+new Date().getTime();
-
-
     }
 
 
@@ -70,6 +68,7 @@ getClientProfile(id){
       this.mobile_no = profileObj["mobile_no"];
       this.address = profileObj["address"];
       this.zip_code = profileObj["zip_code"];
+	  this.gender = profileObj["gender"];
      // this.lastImage = "http://driveronapp.com/Admin/api/UserApp/uploads/"+id+".jpg";
     }, (err) => {
       this.loading.dismiss();
@@ -81,7 +80,7 @@ updateProfile(){
   var id = this.shareService.getClientId();
 
   var obj = {"id":id,"name":this.firstName,"email_id":this.email_id,"mobile_no":this.mobile_no,
-            "address":this.address,"zip_code":this.zip_code};
+            "address":this.address,"zip_code":this.zip_code,"gender":this.gender};
 
   this.showLoader();
   
