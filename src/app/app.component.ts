@@ -1,4 +1,4 @@
-import { AlertController, ToastController } from 'ionic-angular';
+import { AlertController, ToastController,Events } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,8 +31,9 @@ export class MyApp {
   isExistShow:any=true;
   pages: Array<{title: string, icon: string, component: any}>;
   userName :any;
+  gender:any;
   
-  constructor(private alertCtrl: AlertController, public platform: Platform, 
+  constructor(private alertCtrl: AlertController, public platform: Platform,public events: Events, 
     public statusBar: StatusBar, public splashScreen: SplashScreen,
   public storage:Storage,public share:ShareService, private diagnostic: Diagnostic,
 public toastCtrl:ToastController) {
@@ -65,6 +66,11 @@ public toastCtrl:ToastController) {
           this.nav.setRoot(WelcomePage);
         }
       });
+      
+       events.subscribe('user:gender', (gndr) => {
+		// user and time are the same arguments passed in `events.publish(user, time)`
+		this.gender = gndr;
+	  });
 
 
   }

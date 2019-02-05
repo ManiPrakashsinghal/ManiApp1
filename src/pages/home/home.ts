@@ -1,5 +1,5 @@
 import { Component, NgZone, ElementRef, OnInit, ViewChild, Type } from '@angular/core';
-import { NavController, Platform, AlertController, ToastController, MenuController } from 'ionic-angular';
+import { NavController, Platform, AlertController, ToastController, MenuController,Events  } from 'ionic-angular';
 import { FormControl } from "@angular/forms";
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core'; 
@@ -65,7 +65,7 @@ export class HomePage {
     public step_4: boolean = false;
 
   constructor(public navCtrl: NavController, private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone,public shareService : ShareService,
+              private ngZone: NgZone,public shareService : ShareService,public events: Events,
               private diagnostic: Diagnostic,
               public platform: Platform,
               private geolocation: Geolocation,
@@ -129,6 +129,21 @@ export class HomePage {
          });
        
      });
+     
+     
+      var id = shareService.getClientId();
+	 this.postService.getClientProfile(id).then((result) => {
+      console.log(result);
+	  var profileObj = result["data"];
+	  let gender = profileObj["gender"];
+	  this.events.publish('user:gender',gender);
+     // this.lastImage = "http://driveronapp.com/Admin/api/UserApp/uploads/"+id+".jpg";
+    }, (err) => {
+      
+    });
+     
+     
+     
   }
 
   ionViewDidLoad() {

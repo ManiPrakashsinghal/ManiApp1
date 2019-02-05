@@ -19,11 +19,11 @@ import { OtpPage } from '../otp/otp';
 })
 export class RegisterPage {
   loading;
- regData:any =  {username:"",password:"",email:"",rePassword:"",mobileNo:"",zip_code:"",address:""};
+ regData:any =  {username:"",password:"",email:"",rePassword:"",mobileNo:"",zip_code:"",address:"",gender:"M"};
   resData : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private registerService:PostService,
     public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
-      this.regData =  {username:"",password:"",email:"",rePassword:"",mobileNo:"",zip_code:"",address:""};
+      this.regData =  {username:"",password:"",email:"",rePassword:"",mobileNo:"",zip_code:"",address:"",gender:"M"};
   }
 
   ionViewDidLoad() {
