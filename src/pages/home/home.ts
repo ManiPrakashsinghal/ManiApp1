@@ -13,6 +13,7 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { PostService } from '../../app/service/postService.service';
 import { Market } from '@ionic-native/market';
 import { RetingPage } from '../reting/reting';
+import { TripDetailsPage } from '../trip-details/trip-details';
 
 @Component({
   selector: 'page-home',
@@ -150,6 +151,8 @@ export class HomePage {
     this.shareService.setIsHomePage(true);
       //set google maps defaults
      this.checkVersion();
+     this.getCurrentBooking();
+    
   }
 
   ionViewWillEnter(){
@@ -540,7 +543,21 @@ export class HomePage {
             console.log(err);
           });
     }
-
+    
+  getCurrentBooking(){
+	     var id = this.shareService.getClientId();
+	    this.postService.getCurrentBooking(id).then((result) => {
+	      console.log(result);
+	          let obj = result[0];
+				console.log(obj);
+	          if(obj["initiate_time"] != "0000-00-00 00:00:00"){
+		      	this.shareService.setTripDetail(obj);
+		      	this.navCtrl.push(TripDetailsPage);
+			  }
+	    }, (err) => {
+	       console.log(err);
+	    });
+   }
 
     updateConfirm() {
         let alert = this.alertCtrl.create({
