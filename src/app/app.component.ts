@@ -42,7 +42,7 @@ public toastCtrl:ToastController) {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Profile', icon: 'contact', component: ProfilePage },
-      { title: 'Book Driver ', icon: 'car', component: HomePage },
+      { title: 'Book Driver', icon: 'car', component: HomePage },
       { title: 'Current Booking', icon: 'attach', component: CurrentBookingPage },
       { title: 'Booking History', icon: 'filing', component: BookingHistoryPage },
       { title: 'Driver Charges', icon: 'cash', component: DriverChargesPage },
