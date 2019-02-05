@@ -11,7 +11,7 @@
       </button>
       <ion-title>Profile</ion-title>
     </ion-navbar>
-  </ion-header>
+</ion-header>
 
 
 <ion-content >
@@ -22,7 +22,8 @@
          <img [src]="profileImage" onerror="this.src='assets/imgs/profileImage.jpg';"
          [hidden]="lastImage !== null"> -->
 
-       <img src="assets/imgs/profileImage.jpg">
+       <img *ngIf="gender == 'M' " src="assets/imgs/profileImage.jpg">
+	   <img *ngIf="gender == 'F' " src="assets/imgs/profileImageF.jpg">
         <div class="card-title">Mr. {{firstName}}</div>
         <!-- <div class="card-subtitle">28 Listings</div> -->
         <!-- <div class="card-subtitle" (click)="clickImage()">upload pic</div>  -->
@@ -49,6 +50,22 @@
               <h2>Second Name</h2>
               <p>{{lastName}</p>
             </ion-item> -->
+			<ion-list radio-group [(ngModel)]="gender">
+			<ion-row>
+			   <ion-col col-6>
+				  <ion-item>
+					<ion-label>Male</ion-label>
+					<ion-radio value="M" checked></ion-radio>
+				  </ion-item>
+			  </ion-col>
+			   <ion-col col-6>
+				  <ion-item>
+					<ion-label>Female</ion-label>
+					<ion-radio value="F"></ion-radio>
+				  </ion-item>
+			  </ion-col>
+		      </ion-row>
+		    </ion-list>
             <ion-item>
                 <h2>Email</h2>
                 <ion-input placeholder="Email Id" [(ngModel)]="email_id"  ></ion-input>

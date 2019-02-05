@@ -21,6 +21,14 @@
               <div>
                 <strong class="label">TO : </strong>{{bookingObj.drop_location}}
                </div>
+			   
+			   <div>
+               <strong class="label">Start Date/Time : </strong>{{bookingObj.start_time}}
+              </div>
+              <div>
+                <strong class="label">End Date/Time : </strong>{{bookingObj.end_time}}
+               </div>
+			   
               <h2 class="status">{{bookingObj.status}}</h2>
                     <h3>Bill Details :</h3>
                         <!-- <p>Invoice Number :<span class="float-right">Rs. 0</span></p> -->
@@ -32,31 +40,32 @@
                                             <p>Driver Conveyance :<span class="float-right">Rs.{{bookingObj.convPrice}}</span></p>
                                                 <p>Total Bill :<span class="float-right">Rs.{{bookingObj.total_fair}}</span></p>
                                                 <p *ngIf="bookingObj.extra_charges !=  0" >Festival Extra Charges :<span class="float-right">Rs.{{bookingObj.extra_charges}}</span></p>
-                                            </div>
-                                            <div class="estimate" *ngIf="bookingObj.status != 'complete'">
-                                                <p>Estimate Price :<span class="float-right">Rs.{{bookingObj.total_fair}}</span></p>
-                                            </div>  
-                                            <div *ngIf="bookingObj.driver_id != '0'">     
-                                                <h3 class="label">Driver Details :</h3>
-                                                <p>Driver Name :<span class="float-right">{{driverObj.first_name}} {{driverObj.last_name}}</span></p>
-                                               
-                                                <p>Driver Address :<span class="float-right">{{driverObj.address}}</span></p>
-                                   
-                                     <div *ngIf="bookingObj.status == 'pending'">
-                                        <p>Driver Mobile No :<span class="float-right">{{driverObj.mobile_no}}</span></p> 
-                                        <button ion-button round (click)="getDriverLocation()" > <ion-icon name="pin" >  </ion-icon> Track Driver</button>
-                                        <ion-fab right bottom>
-                                            <button ion-fab color="light" (click)="callInNumber(driverObj.mobile_no)">
-                                            <ion-icon name="call"></ion-icon>
-                                            </button>
-                                            <ion-label>Call Driver</ion-label>   											
-                                        </ion-fab>
-                                    </div>
-                                              <!--  <button ion-button round (click)="callInNumber(driverObj.mobile_no)">
-                                                   <ion-icon ios="ios-call" md="md-call" ></ion-icon>
-                                                </button>
-												-->
-                                            </div>    
+                        </div>
+						
+						<div class="estimate" *ngIf="bookingObj.status != 'complete'">
+							<p>Estimate Price :<span class="float-right">Rs.{{bookingObj.total_fair}}</span></p>
+						</div>  
+						<div *ngIf="bookingObj.driver_id != '0'">     
+								<h3 class="label">Driver Details :</h3>
+								<p>Driver Name :<span class="float-right">{{driverObj.first_name}} {{driverObj.last_name}}</span></p>
+							   
+								<p>Driver Address :<span class="float-right">{{driverObj.address}}</span></p>
+				   
+								 <div *ngIf="bookingObj.status == 'pending'">
+									<p>Driver Mobile No :<span class="float-right">{{driverObj.mobile_no}}</span></p> 
+									<button ion-button round (click)="getDriverLocation()" > <ion-icon name="pin" >  </ion-icon> Track Driver</button>
+									<ion-fab right bottom>
+										<button ion-fab color="light" (click)="callInNumber(driverObj.mobile_no)">
+										<ion-icon name="call"></ion-icon>
+										</button>
+										<ion-label>Call Driver</ion-label>   											
+									</ion-fab>
+								</div>
+							  <!--  <button ion-button round (click)="callInNumber(driverObj.mobile_no)">
+								   <ion-icon ios="ios-call" md="md-call" ></ion-icon>
+								</button>
+								-->
+						</div>    
           </ion-card-content>
       </ion-card>
 </ion-content>

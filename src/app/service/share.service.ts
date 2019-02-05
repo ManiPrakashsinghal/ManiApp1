@@ -25,7 +25,7 @@ export class ShareService {
 
  gearObj = {
      "manual":"Manual",
-     "auto":"Automatioc"
+     "auto":"Automatic"
  }
 
 

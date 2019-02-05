@@ -11,7 +11,8 @@
     <ion-list class="profileImg">
         <ion-item>
           <ion-avatar>
-              <img src="assets/imgs/profileImage.jpg">
+			   <img *ngIf="gender == 'M' " src="assets/imgs/profileImage.jpg">
+	           <img *ngIf="gender == 'F' " src="assets/imgs/profileImageF.jpg">
             <!-- <img src="https://placeimg.com/120/120/people"> -->
           </ion-avatar>
           <h2>{{userName}}</h2>
