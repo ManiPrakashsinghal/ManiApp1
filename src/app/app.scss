@@ -15,6 +15,7 @@ ion-content{ background-color:#F5F5F5!important }
 .profileImg h2,
 ion-navbar .bar-button{ color: #F5F5F5!important}
 .toolbar-title { color :rgb(248, 223, 1)!important}
+#mainMenu .menu-inner{ width:250px}
 #mainMenu .menu-inner ion-content .scroll-content,
 .sliderNavigation{ background:#ffc61a!important}
 .sliderNavigation button{ background:none!important}
@@ -34,8 +35,8 @@ ion-navbar .bar-button{ color: #F5F5F5!important}
 .picker-md .picker-col:nth-child(3):after{content: 'Month';}
 .picker-md .picker-col:nth-child(4):after{content: 'Year';}
 .picker-md .picker-col:nth-child(5):after{content: 'Hour';}
-.picker-md .picker-col:nth-child(6):after{content: 'Minit';}
-.picker-md .picker-col:nth-child(7):after{content: 'Meridiem';}
+.picker-md .picker-col:nth-child(6):after{content: 'Minute';}
+.picker-md .picker-col:nth-child(7):after{content: 'Meridian';}
 
 .picker-md .picker-col:nth-child(5),
 .picker-md .picker-col:nth-child(6),

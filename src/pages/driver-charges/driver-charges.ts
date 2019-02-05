@@ -16,7 +16,7 @@ export class DriverChargesPage {
 
   private charge_1:boolean = true;
   private charge_2:boolean = false;
-  private charge_3:boolean = false;
+  private charge_3:boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

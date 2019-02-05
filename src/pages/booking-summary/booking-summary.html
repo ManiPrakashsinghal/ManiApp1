@@ -29,22 +29,22 @@
       </li>
       <li>
         <h4>Car - Gear Type</h4>
-        <p>{{carType}} -{{gearType}}</p>
+        <p>{{carType}} - {{gearType}}</p>
       </li>
       <li>
         <h4>Booking Type</h4>
         <p>{{tripType}}</p>
       </li>
       <li>
-        <h4>Estimated Charge</h4>
+        <h4>Estimated Charge#s</h4>
         <p>Rs. {{charge}}</p>
       </li>
       <li>
-        <h4>Night Charge</h4>
+        <h4>Night Charge#s</h4>
         <p>Rs. {{nightCharge}}</p>
       </li>
       <li>
-        <h4>Conveyance Charges</h4>
+        <h4>Conveyance Charge#s</h4>
         <p>Rs. {{convFees}}</p>
       </li>
       <li>
@@ -56,15 +56,15 @@
         <p>Rs. {{discount}}</p>
       </li>
       <li *ngIf="extraCharges !=  0">
-        <h4>Festival Extra Charges</h4>
+        <h4>Festival Extra Charge#s</h4>
         <p>Rs. {{extraCharges}}</p>
       </li>
       <li >
-        <h4>Final Est. Charges</h4>
+        <h4>Final Est. Charge#s</h4>
         <p>Rs. {{finalFee}}</p>
       </li>
     </ul>
-    <p>Note: Estimated Charges may differ depend upon actual total journey hours.</p>
+    <p>Note: Estimated Charge#s may differ depend upon actual total journey hours.</p>
     <button large ion-button block block medium color="dark" (click)="additionalCharge()">
     ADDITIONAL CHARGES
     </button>

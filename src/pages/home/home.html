@@ -7,132 +7,144 @@
   </ion-navbar>
 </ion-header>
 
- 
-  <ion-content class="bookDriverInput">
-    <ion-item>
-        <ion-label fixed>From</ion-label>
-        <ion-input id="txtHome" [(ngModel)]="bookingObj.pickLocation" type="text"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label fixed>To</ion-label>
-      <ion-input id="textDes" [(ngModel)]="bookingObj.dropLocation" type="text"></ion-input>
+<ion-content class="bookDriverInput">
+  <ion-item>
+    <ion-label fixed>From</ion-label>
+    <ion-input id="txtHome" [(ngModel)]="bookingObj.pickLocation" type="text"></ion-input>
   </ion-item>
- 
+
+  <ion-item>
+    <ion-label fixed>To</ion-label>
+    <ion-input id="textDes" [(ngModel)]="bookingObj.dropLocation" type="text"></ion-input>
+  </ion-item>
+
 
   <!-- <div id="map-canvas"></div> -->
 
-  <agm-map  [latitude]="latitude" [longitude]="longitude" (mapReady)="mapReady($event)" [scrollwheel]="true" [zoom]="zoom">
+  <agm-map [latitude]="latitude" [longitude]="longitude" (mapReady)="mapReady($event)" [scrollwheel]="true" [zoom]="zoom">
     <!-- <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable] ="true" (dragEnd)="markerMoved($event)" ></agm-marker> -->
-  </agm-map> 
+  </agm-map>
   <ion-fab right bottom>
-    <button ion-fab color="light" (click)="setCurrentPosition()"><ion-icon name="locate"></ion-icon></button>
+    <button ion-fab color="light" (click)="setCurrentPosition()">
+      <ion-icon name="locate"></ion-icon>
+    </button>
   </ion-fab>
 </ion-content>
- 
 
-<ion-footer id="travelForm"> 
+
+<ion-footer id="travelForm">
   <div *ngIf="step_1" id="travelStep_1">
-    
-      <ion-list radio-group class="myRadio" [(ngModel)]="bookingObj.tripType">
-        
-        <ion-item class="localTrip radioWithImg">
-          <ion-radio value="local" checked></ion-radio>
-          <ion-label>Local</ion-label>
-          
-        </ion-item>
-      
-        <ion-item class="roundTrip radioWithImg">
-          <ion-radio value="outstation"></ion-radio>
-          <ion-label>Outstation</ion-label>
-          
-        </ion-item>
 
-        <ion-item class="oneWayTrip radioWithImg">
-          <ion-radio value="oneway"></ion-radio>
-          <ion-label>One Way Trip</ion-label>
-          
-        </ion-item>       
-      </ion-list>
+    <ion-list radio-group class="myRadio" [(ngModel)]="bookingObj.tripType">
 
-      <ion-grid>
-          <ion-row>
-            <ion-col col-12>
-      <button color="light" ion-button block icon-end  (click)="next()"> Next <ion-icon name="arrow-forward"></ion-icon></button>
-      </ion-col></ion-row></ion-grid>
-</div>
-<div *ngIf="step_2" id="travelStep_2">
+      <ion-item class="localTrip radioWithImg">
+        <ion-radio value="local" checked></ion-radio>
+        <ion-label>Local</ion-label>
+
+      </ion-item>
+
+      <ion-item class="roundTrip radioWithImg">
+        <ion-radio value="outstation"></ion-radio>
+        <ion-label>Outstation</ion-label>
+
+      </ion-item>
+
+      <ion-item class="oneWayTrip radioWithImg">
+        <ion-radio value="oneway"></ion-radio>
+        <ion-label>One Way Trip</ion-label>
+
+      </ion-item>
+    </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <button color="light" ion-button block icon-end (click)="next()"> Next <ion-icon name="arrow-forward"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="step_2" id="travelStep_2">
 
     <ion-list radio-group class="myRadio" [(ngModel)]="bookingObj.carType">
-        <ion-item class="smlCar radioWithImg">
-          <ion-radio checked="true" value="small"></ion-radio>
-          <ion-label>Small</ion-label>
-        </ion-item>
-        <ion-item class="midCar radioWithImg">
-          <ion-radio value="medium"></ion-radio>
-          <ion-label>Medium</ion-label>
-        </ion-item>
-        <ion-item class="lrgCar radioWithImg">
-          <ion-radio value="large"></ion-radio>
-          <ion-label>Large</ion-label>
-        </ion-item>
-        <ion-item class="lxyCar radioWithImg">
-            <ion-radio value="luxury"></ion-radio>
-            <ion-label>Luxury</ion-label>
-          </ion-item>
-      </ion-list>
-        <ion-grid>
-            <ion-row>
-                <ion-col col-6><button color="danger" ion-button block icon-start (click)="back()"><ion-icon name="arrow-back"></ion-icon> Back</button></ion-col>
-                <ion-col col-6><button color="light" ion-button block icon-end (click)="next1()">Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
-            </ion-row>
-         </ion-grid>
-      </div>
-      <div  *ngIf="step_3" id="travelStep_3">
-          <ion-list radio-group class="myRadio" [(ngModel)]="bookingObj.gearType">
-              <ion-item>
-                <ion-radio checked="true" value="manual"></ion-radio>
-                <ion-label>Manual</ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-radio value="auto"></ion-radio>
-                <ion-label>Automatic</ion-label>
-              </ion-item>
-            </ion-list>
-          <ion-grid>
-              <ion-row>
-                <ion-col col-6><button color="danger" ion-button block icon-start (click)="back1()"><ion-icon name="arrow-back"></ion-icon> Back</button></ion-col>
-                <ion-col col-6><button color="light" ion-button block icon-end (click)="next2()">Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
-              </ion-row>
-           </ion-grid>
-        </div>
-        <div *ngIf="step_4" id="travelStep_4">
-          
-  
+      <ion-item class="smlCar radioWithImg">
+        <ion-radio checked="true" value="small"></ion-radio>
+        <ion-label>Small</ion-label>
+      </ion-item>
+      <ion-item class="midCar radioWithImg">
+        <ion-radio value="medium"></ion-radio>
+        <ion-label>Medium</ion-label>
+      </ion-item>
+      <ion-item class="lrgCar radioWithImg">
+        <ion-radio value="large"></ion-radio>
+        <ion-label>Large</ion-label>
+      </ion-item>
+      <ion-item class="lxyCar radioWithImg">
+        <ion-radio value="luxury"></ion-radio>
+        <ion-label>Luxury</ion-label>
+      </ion-item>
+    </ion-list>
     <ion-grid>
-  <ion-row>
-    <ion-col col-6>
-        <ion-item>
+      <ion-row>
+        <ion-col col-6><button color="danger" ion-button block icon-start (click)="back()">
+            <ion-icon name="arrow-back"></ion-icon> Back
+          </button></ion-col>
+        <ion-col col-6><button color="light" ion-button block icon-end (click)="next1()">Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="step_3" id="travelStep_3">
+    <ion-list radio-group class="myRadio" [(ngModel)]="bookingObj.gearType">
+      <ion-item>
+        <ion-radio checked="true" value="manual"></ion-radio>
+        <ion-label>Manual</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio value="auto"></ion-radio>
+        <ion-label>Automatic</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6><button color="danger" ion-button block icon-start (click)="back1()">
+            <ion-icon name="arrow-back"></ion-icon> Back
+          </button></ion-col>
+        <ion-col col-6><button color="light" ion-button block icon-end (click)="next2()">Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="step_4" id="travelStep_4">
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
             <ion-label>Start Date</ion-label>
-            <ion-datetime displayFormat="MMM DD, YY HH:mm" min={{minDate}} max="{{maxDate}}" pickerFormat="DD-MMM-YYYYThh:mmA" [(ngModel)]="bookingObj.startTime"></ion-datetime>
+            <ion-datetime displayFormat="MMM DD, YY HH:mm" min={{minDate}} max="{{maxDate}}" pickerFormat="DD-MMM-YYYYThh:mmA"
+              [(ngModel)]="bookingObj.startTime"></ion-datetime>
           </ion-item>
 
-    </ion-col>
-  
-    <ion-col col-6>
-        <ion-item>
+        </ion-col>
+
+        <ion-col col-6>
+          <ion-item>
             <ion-label>End Date</ion-label>
-            <ion-datetime displayFormat="MMM DD, YY HH:mm" min={{minDate}} max="{{maxDate}}"  pickerFormat="DD-MMM-YYYYThh:mmA" [(ngModel)]="bookingObj.endTime"></ion-datetime>
+            <ion-datetime displayFormat="MMM DD, YY HH:mm" min={{minDate}} max="{{maxDate}}" pickerFormat="DD-MMM-YYYYThh:mmA"
+              [(ngModel)]="bookingObj.endTime"></ion-datetime>
           </ion-item>
 
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<ion-grid>
-    <ion-row>
-      <ion-col col-6><button color="danger" ion-button block icon-start (click)="back2()"> <ion-icon name="arrow-back"></ion-icon> Back</button></ion-col>
-      <ion-col col-6><button color="light" ion-button block icon-end (click)="bookingSummary()"> Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
-    </ion-row>
- </ion-grid>
-</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6><button color="danger" ion-button block icon-start (click)="back2()">
+            <ion-icon name="arrow-back"></ion-icon> Back
+          </button></ion-col>
+        <ion-col col-6><button color="light" ion-button block icon-end (click)="bookingSummary()"> Next <ion-icon name="arrow-forward"></ion-icon></button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-footer>

@@ -16,29 +16,34 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
   <!-- <ion-card>
     <ion-card-content>
         <div #directionsPanel></div>
     </ion-card-content>
 </ion-card> -->
- 
+  
 <div #map id="map"></div> 
 
-<!-- <ion-fab right bottom (click)="startNavigation()">
+<ion-fab right bottom>
   
-<button ion-fab color="light"  >
-   <ion-icon name="expand" ></ion-icon>
-</button>  
-                      
-</ion-fab> -->
+  <button ion-fab color="light" (click)="callInNumber(9462998080)">
+    <ion-icon name="call"></ion-icon> 
+ </button>
+ <ion-label>Customer Care</ion-label>                      
+</ion-fab>
 
 </ion-content>
 
-<!-- <ion-footer color="dark">
-<button  ion-button large block color="light" (click)="updateArrivedTime()">
-  <ion-icon name="paper-plane" item-start></ion-icon>Tap When Arrived</button>
-</ion-footer> -->
+<ion-footer color="dark">
+    <ion-item class="journeyTime">
+      <h2>Journey Time <strong float-right>2(HH): 45(MM)</strong></h2>
+    </ion-item>
+    <!-- <ion-item>
+      <h2 >Driver <strong float-right>Mr. Ramlal Sharma</strong></h2>
+      <h2>Mobile <strong float-right>+918974563</strong></h2>
+    </ion-item> -->
+</ion-footer>
 
 

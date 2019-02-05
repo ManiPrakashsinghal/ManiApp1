@@ -4,6 +4,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { PostService } from '../../app/service/postService.service';
 import { ShareService } from '../../app/service/share.service';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { CallNumber } from '@ionic-native/call-number';
 /**
  * Generated class for the DriverLocationPage page.
  *
@@ -33,24 +34,23 @@ export class DriverLocationPage {
     DesLng:any;
     interval:any;
 
-
+    journeyTime : any;
     bookingId: any;
     bookingObj:any;
-
+    
     loading:any;
  
     constructor(public navCtrl: NavController,private geo: Geolocation,public navParams: NavParams,
-        private platform : Platform,public loadingCtrl: LoadingController, private toastCtrl: ToastController,public postService:PostService,public shareService:ShareService, private launchNavigator: LaunchNavigator) {
+        private platform : Platform,public loadingCtrl: LoadingController, 
+        private toastCtrl: ToastController,public postService:PostService, public shareService:ShareService, 
+        private launchNavigator: LaunchNavigator, public callNumber:CallNumber) {
 
         this.bookingId = this.navParams.get('bookingId');
         console.log(this.bookingId);
        
           this.platform.ready().then(() => {
             });
-    
- 
     }
- 
     ionViewDidLoad(){
         this.loadMap();
     }
@@ -237,6 +237,12 @@ export class DriverLocationPage {
         });
     
         toast.present();
+      }
+
+      callInNumber(no){
+        this.callNumber.callNumber(no, true)
+        .then(res => console.log('Launched dialer!', res))
+        .catch(err => console.log('Error launching dialer', err));
       }
 
 }

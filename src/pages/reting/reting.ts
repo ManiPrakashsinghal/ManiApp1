@@ -21,6 +21,7 @@ export class RetingPage {
   rate:any = 3;
   bookingObj:any;
   bookingId:any;
+  xperienceMsz:any;
   driverObj:any= {
     first_name:'',
     last_name:'',

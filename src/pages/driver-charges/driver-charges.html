@@ -18,50 +18,69 @@
 
 <ion-content padding>
 
-<h3>Local</h3>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6><h4>Hours</h4></ion-col>
-        <ion-col col-6><h4>Charges</h4></ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col col-6><p>0-4</p></ion-col>
-          <ion-col col-6><p>71/ Per Hour</p></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-6><p>4-8</p></ion-col>
-            <ion-col col-6><p>47/ Per Hour</p></ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col col-6><p>8 onwords</p></ion-col>
-              <ion-col col-6><p>31/ Per Hour</p></ion-col>
-            </ion-row>
-    </ion-grid>
-<ion-list *ngIf="charge_1" id="travelStep_1">
-<p>Tax As Applicable 1</p>
-<h4>Additional Charges</h4>
-<p>Following are as Per Market Standards:</p>
-<ul>
-  <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
-  <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
-</ul>
-</ion-list>
-<ion-list *ngIf="charge_2" id="travelStep_2">
+  <h3>Local</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <h4>Hours</h4>
+      </ion-col>
+      <ion-col col-6>
+        <h4>Charges</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>0-4</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>71/ Per Hour</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>4-8</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>47/ Per Hour</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p>8 onwords</p>
+      </ion-col>
+      <ion-col col-6>
+        <p>31/ Per Hour</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list *ngIf="charge_1" id="travelStep_1">
+    <p>Tax As Applicable 1</p>
+    <h4>Additional Charges Local and Outstation Tirp</h4>
+    <p>Following are as Per Market Standards:</p>
+    <ul>
+      <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local and Outstation Trip Bookings.</li>
+      <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
+    </ul>
+  </ion-list>
+  <ion-list *ngIf="charge_2" id="travelStep_2">
     <p>Tax As Applicable 2</p>
     <h4>Additional Charges</h4>
     <p>Following are as Per Market Standards:</p>
     <ul>
-      <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
+      <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local and Outstation Trip Bookings.</li>
       <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
     </ul>
-    </ion-list>
-    <ion-list *ngIf="charge_2" id="travelStep_2">
-        <p>Tax As Applicable 1</p>
-        <h4>Additional Charges</h4>
-        <p>Following are as Per Market Standards:</p>
-        <ul>
-          <li>Driver Conveyance Charges of Rs. 50 is Applicables for Local Bookings.</li>
-          <li>Night Travelling Allowance of Rs. 100 is Applicable for Local Booking Starting/ Ending Between 12AM to 4AM</li>
-        </ul>
-        </ion-list>
+  </ion-list>
+  <ion-list *ngIf="charge_3" id="travelStep_3">
+    <p>Tax As Applicable 1</p>
+    <h4>Additional Charges For Oneway Trip</h4>
+    <p>Following are as Per Market Standards:</p>
+    <ul>
+      <li>In case of Outstation one way trip charges would get doubled above mentioned table because driver will take same or may be more time to reach source location.</li>
+      <li>Driver conveyance charges of Rs. 100 is applicable for Outstation one way booking.</li>
+      <li>Night travelling allowance of Rs. 100 is applicable for Outstation one way booking starting/ ending between 10pm to 4am.</li>
+      <li>Food and accommodation will be provided by customer.</li>
+      <li>Return bus fare will be borne by the user in case of one way trip.</li>
+    </ul>
+  </ion-list>
 </ion-content>

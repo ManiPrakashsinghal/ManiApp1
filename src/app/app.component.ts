@@ -1,8 +1,9 @@
-import { AlertController, ToastController,Events } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { HomePage } from '../pages/home/home';
@@ -12,10 +13,11 @@ import { BookingHistoryPage } from '../pages/booking-history/booking-history';
 import { DriverChargesPage } from '../pages/driver-charges/driver-charges';
 import { HelpSupportPage } from '../pages/help-support/help-support';
 import { SharePage } from '../pages/share/share';
-import {Storage} from '@ionic/storage';
+//import { DriverLocationPage } from '../pages/driver-location/driver-location';
+import { Storage } from '@ionic/storage';
 import { ShareService } from './service/share.service';
-import { Diagnostic } from '@ionic-native/diagnostic';
-import { NumberFormatStyle } from '@angular/common';
+import { Diagnostic } from '@ionic-native/diagnostic'; 
+//import { NumberFormatStyle } from '@angular/common';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,14 +31,13 @@ export class MyApp {
   isExistShow:any=true;
   pages: Array<{title: string, icon: string, component: any}>;
   userName :any;
-  gender:any;
   
-  constructor(private alertCtrl: AlertController, public platform: Platform,public events: Events, 
+  constructor(private alertCtrl: AlertController, public platform: Platform, 
     public statusBar: StatusBar, public splashScreen: SplashScreen,
   public storage:Storage,public share:ShareService, private diagnostic: Diagnostic,
 public toastCtrl:ToastController) {
     this.initializeApp();
-
+ 
    this.userName = "";
 
     // used for an example of ngFor and navigation
@@ -48,10 +49,13 @@ public toastCtrl:ToastController) {
       { title: 'Driver Charges', icon: 'cash', component: DriverChargesPage },
       { title: 'Help and Support', icon: 'help', component: HelpSupportPage },
       { title: 'Share', icon: 'share', component: SharePage },
+      //{ title: 'dl', icon: 'share', component: DriverLocationPage },
+      
       
     ];
 
- 
+    
+
       this.storage.get('ClientloginId').then(loginId=>{
         console.log('ClientloginId: '+ loginId);
         if(loginId){
@@ -61,13 +65,8 @@ public toastCtrl:ToastController) {
           this.nav.setRoot(WelcomePage);
         }
       });
-	  
-	  events.subscribe('user:gender', (gndr) => {
-		// user and time are the same arguments passed in `events.publish(user, time)`
-		this.gender = gndr;
-	  });
-	  
-	  
+
+
   }
 
   initializeApp() {
