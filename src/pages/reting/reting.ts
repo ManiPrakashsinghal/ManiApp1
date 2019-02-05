@@ -57,7 +57,8 @@ export class RetingPage {
   setReting(){
     var retingVal = this.retingVal;
     var bookingId = this.bookingId;
-    this.postService.updateReting(retingVal,bookingId).then((result) => {
+    var review = this.xperienceMsz;
+    this.postService.updateReting(retingVal,bookingId,review).then((result) => {
       console.log(result);
       this.loading.dismiss();
       let status = result["status"];

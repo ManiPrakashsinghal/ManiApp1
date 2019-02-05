@@ -200,10 +200,10 @@ export class PostService{
 				});
 			}
 
-			updateReting(retingVal,bookingId){
+			updateReting(retingVal,bookingId,review){
 				return new Promise((resolve, reject) => {
 				  let headers = new Headers();
-				  let apiData = {"dataMode":"updateReting","RetVal":retingVal,"bookingId":bookingId};
+				  let apiData = {"dataMode":"updateReting","RetVal":retingVal,"bookingId":bookingId,"review":review};
 				  headers.append('Content-Type', 'application/x-www-form-urlencoded');
 				  this.http.post(apiUrl+'UserApp/index.php', JSON.stringify(apiData), {headers: headers})
 					.subscribe(res => {
