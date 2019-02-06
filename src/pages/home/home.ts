@@ -549,8 +549,7 @@ export class HomePage {
 	    this.postService.getCurrentBooking(id).then((result) => {
 	      console.log(result);
 	          let obj = result[0];
-				console.log(obj);
-	          if(obj["initiate_time"] != "0000-00-00 00:00:00"){
+	          if(obj != undefined && obj["initiate_time"] != "0000-00-00 00:00:00"){
 		      	this.shareService.setTripDetail(obj);
 		      	this.navCtrl.push(TripDetailsPage);
 			  }

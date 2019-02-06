@@ -37,6 +37,7 @@ export class DriverLocationPage {
     journeyTime : any;
     bookingId: any;
     bookingObj:any;
+	TotalRideTimeShow:any;
     
     loading:any;
  
@@ -47,11 +48,12 @@ export class DriverLocationPage {
 
         this.bookingId = this.navParams.get('bookingId');
         console.log(this.bookingId);
-       
+         this.TotalRideTimeShow = '00(HH): 00(MM)';
           this.platform.ready().then(() => {
             });
     }
     ionViewDidLoad(){
+		this.showRideTime();
         this.loadMap();
     }
 
@@ -94,10 +96,27 @@ export class DriverLocationPage {
       console.log(result);
       this.bookingObj = result["data"];
       this.setDriverLocation();
+	  
     }, (err) => {
       this.presentToast(err);
     });
   }
+  
+  showRideTime() {
+      var id  = this.bookingId;
+    this.postService.getDriverLocation(id).then((result) => {
+      console.log(result);
+      this.bookingObj = result["data"];
+	  if(this.bookingObj["start_time"] != "0000-00-00 00:00:00"){
+           var startTime = this.bookingObj["start_time"];
+           this.upTime(startTime);
+        }
+    }, (err) => {
+      this.presentToast(err);
+    });
+  }
+  
+  
 
   setDriverLocation(){
     var pageObj = this;
@@ -215,6 +234,24 @@ export class DriverLocationPage {
           title: title
       });
   }
+  
+   upTime(countTo) {
+          var temp = this;
+        this.now = new Date();
+        this.countTo = new Date(countTo);
+        var difference = this.now - this.countTo;
+      
+        var days=Math.floor(difference/(60*60*1000*24)*1);
+        var hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+        var mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+        var secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+      
+        this.TotalRideTimeShow = days+' Day: '+hours+' Hours: '+mins+' Minutes: '+secs+' Seconds';
+      
+        clearTimeout(upTimeTto);
+        var upTimeTto =setTimeout(function(){temp.upTime(temp.countTo)},1000);
+      }
+  
 
   
       showLoader(){

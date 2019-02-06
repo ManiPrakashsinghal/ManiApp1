@@ -20,12 +20,22 @@
             <div>
                 <strong class="label">To : </strong>{{bookingObj.drop_location}}
             </div>
-            <div>
+             <div *ngIf="bookingObj.status == 'complete'">
+			   <div>
                <strong class="label">Start Time : </strong>{{bookingObj.start_time}}
               </div>
               <div>
                 <strong class="label">End Time : </strong>{{bookingObj.end_time}}
                </div>
+			   </div>
+			    <div *ngIf="bookingObj.status != 'complete'">
+				<div>
+               <strong class="label">Start Time : </strong>{{bookingObj.e_start_time}}
+              </div>
+              <div>
+                <strong class="label">End Time : </strong>{{bookingObj.e_end_time}}
+               </div>
+			   </div>
             <h2 class="status">{{bookingObj.status}}</h2>
             <h3>Bill Details :</h3>
             <!-- <p>Invoice Number :<span class="float-right">Rs. 0</span></p> -->
