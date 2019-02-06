@@ -37,6 +37,9 @@ export class DriverLocationPage {
     journeyTime : any;
     bookingId: any;
     bookingObj:any;
+    
+    countTo:any =  Date;
+    now:any =  Date;
 	TotalRideTimeShow:any;
     
     loading:any;
