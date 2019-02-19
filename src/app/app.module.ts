@@ -49,7 +49,7 @@ import { RetingPage } from '../pages/reting/reting';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { DriverLocationPage } from '../pages/driver-location/driver-location';
 import { OtpPage } from '../pages/otp/otp';
-
+import  { AllowPermissionPage  } from '../pages/allow-permission/allow-permission';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { OtpPage } from '../pages/otp/otp';
     SharePage,
     RetingPage,
     DriverLocationPage,
-    OtpPage
+    OtpPage,
+	AllowPermissionPage
   ],
   imports: [
     BrowserModule,
@@ -98,7 +99,8 @@ import { OtpPage } from '../pages/otp/otp';
     SharePage,
     RetingPage,
     DriverLocationPage,
-    OtpPage
+    OtpPage,
+	AllowPermissionPage
   ],
   providers: [
     LocationAccuracy,
@@ -119,7 +121,7 @@ import { OtpPage } from '../pages/otp/otp';
     Transfer,
     FilePath,
     Market,
-    LaunchNavigator
+    LaunchNavigator,
   ]
 })
 export class AppModule {}

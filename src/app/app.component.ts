@@ -19,6 +19,11 @@ import { ShareService } from './service/share.service';
 import { Diagnostic } from '@ionic-native/diagnostic'; 
 //import { NumberFormatStyle } from '@angular/common';
 
+
+import  { AllowPermissionPage  } from '../pages/allow-permission/allow-permission';
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -54,19 +59,7 @@ public toastCtrl:ToastController) {
       
       
     ];
-
-    
-
-      this.storage.get('ClientloginId').then(loginId=>{
-        console.log('ClientloginId: '+ loginId);
-        if(loginId){
-        this.share.setClientId(loginId);
-        this.nav.setRoot(HomePage);
-        }else{
-          this.nav.setRoot(WelcomePage);
-        }
-      });
-      
+ 
        events.subscribe('user:gender', (gndr) => {
 		// user and time are the same arguments passed in `events.publish(user, time)`
 		this.gender = gndr;
@@ -77,6 +70,39 @@ public toastCtrl:ToastController) {
 
   initializeApp() {
     this.platform.ready().then(() => {
+		
+		
+		    var thisObj = this;
+			this.diagnostic.getPermissionAuthorizationStatus(this.diagnostic.permission.CALL_PHONE).then((status) => {
+				 switch(status){
+					case thisObj.diagnostic.permissionStatus.GRANTED:
+						console.log("Permission granted to use the camera");
+						
+						thisObj.storage.get('ClientloginId').then(loginId=>{
+							console.log('ClientloginId: '+ loginId);
+							if(loginId){
+							thisObj.share.setClientId(loginId);
+							thisObj.nav.setRoot(HomePage);
+							}else{
+							  thisObj.nav.setRoot(WelcomePage);
+							}
+						  });
+											
+						break;
+					case thisObj.diagnostic.permissionStatus.NOT_REQUESTED:
+						console.log("Permission to use the camera has not been requested yet");
+						thisObj.nav.setRoot(AllowPermissionPage);
+						break;
+					case thisObj.diagnostic.permissionStatus.DENIED:
+						console.log("Permission denied to use the camera - ask again?");
+						thisObj.nav.setRoot(AllowPermissionPage);
+						break;
+					case thisObj.diagnostic.permissionStatus.DENIED_ALWAYS:
+						console.log("Permission permanently denied to use the camera - guess we won't be using it then!");
+						thisObj.nav.setRoot(AllowPermissionPage);
+						break;
+				}
+	    });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -116,7 +142,7 @@ this.platform.registerBackButtonAction((event) => {
               });
           }
       }
-    },101);    
+    },101);  
   }
 
   openPage(page) {
