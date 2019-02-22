@@ -56,8 +56,6 @@ public toastCtrl:ToastController) {
       { title: 'Help and Support', icon: 'help', component: HelpSupportPage },
       { title: 'Share', icon: 'share', component: SharePage },
       //{ title: 'dl', icon: 'share', component: DriverLocationPage },
-      
-      
     ];
  
        events.subscribe('user:gender', (gndr) => {
@@ -103,6 +101,7 @@ public toastCtrl:ToastController) {
 						break;
 				}
 	    });
+		
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();

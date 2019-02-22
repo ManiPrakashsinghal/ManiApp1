@@ -11,9 +11,10 @@ import { HomePage } from '../home/home';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ @IonicPage()
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-allow-permission',
   templateUrl: 'allow-permission.html',

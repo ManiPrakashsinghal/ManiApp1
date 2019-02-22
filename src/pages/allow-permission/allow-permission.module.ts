@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/** import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AllowPermissionPage } from './allow-permission';
 
@@ -11,3 +11,5 @@ import { AllowPermissionPage } from './allow-permission';
   ],
 })
 export class AllowPermissionPageModule {}
+
+**/

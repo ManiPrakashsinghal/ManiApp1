@@ -51,6 +51,7 @@ import { DriverLocationPage } from '../pages/driver-location/driver-location';
 import { OtpPage } from '../pages/otp/otp';
 import  { AllowPermissionPage  } from '../pages/allow-permission/allow-permission';
 
+
 @NgModule({
   declarations: [
     MyApp,
